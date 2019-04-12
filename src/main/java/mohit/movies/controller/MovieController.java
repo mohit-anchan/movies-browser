@@ -1,11 +1,13 @@
 package mohit.movies.controller;
 
 import mohit.movies.model.Movie;
-import mohit.movies.service.MovieRepository;
+import mohit.movies.repository.MovieRepository;
+import mohit.movies.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,10 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/movies")
 public class MovieController {
     @Autowired
-    private MovieRepository movieRepository;
+    private MovieService movieService;
 
     @GetMapping("")
     public Page<Movie> getMovies(Pageable pageable) {
-        return movieRepository.findAll(pageable);
+        return movieService.getMovies(pageable);
+    }
+
+    @GetMapping("/{id}")
+    public Movie getMovieById(@PathVariable Integer id) {
+        return movieService.getMovieById(id);
     }
 }

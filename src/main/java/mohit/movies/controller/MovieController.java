@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 /**
- * Created by miles19 on 10-Mar-19.
+ * Created by mohit on 10-Mar-19.
  */
 @RestController
 @RequestMapping("/api/movies")

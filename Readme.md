@@ -67,3 +67,8 @@ mvn spring-boot:run
 ###### 4. Load DB properties from environment variables
 
 + https://stackoverflow.com/a/35535138
+
+###### 5. JPA
+OffsetDateTime for Timestamp without Timezone
++ https://thoughts-on-java.org/map-date-time-api-jpa-2-2/
++ https://blog.jooq.org/tag/timestamp-with-time-zone/

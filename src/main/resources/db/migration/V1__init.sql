@@ -4,33 +4,34 @@ id SERIAL PRIMARY KEY,
 name TEXT NOT NULL,
 year INT NOT NULL,
 language TEXT NOT NULL,
-relase_date DATE NULL,
-createdon TIMESTAMP WITH TIME ZONE NOT NULL default now(),
-lastupdated TIMESTAMP WITH TIME ZONE NOT NULL default now()
+relasedate DATE NULL,
+created_on TIMESTAMP WITH TIME ZONE NOT NULL default now(),
+last_updated TIMESTAMP WITH TIME ZONE NOT NULL default now()
 );
 
 CREATE TABLE genre(
 id SERIAL PRIMARY KEY,
 name TEXT NOT NULL,
-createdon TIMESTAMP WITH TIME ZONE NOT NULL default now(),
+created_on TIMESTAMP WITH TIME ZONE NOT NULL default now(),
+last_updated TIMESTAMP WITH TIME ZONE NOT NULL default now(),
 CONSTRAINT genre_unq UNIQUE (name)
 );
 
 CREATE TABLE movie_genre(
-movie_id bigint NOT NULL,
-genre_id bigint NOT NULL,
+movie_id int NOT NULL,
+genre_id int NOT NULL,
 CONSTRAINT movie_fk FOREIGN KEY (movie_id) REFERENCES movie(id),
 CONSTRAINT genre_fk FOREIGN KEY (genre_id) REFERENCES genre(id),
 CONSTRAINT movie_genre_unq UNIQUE (movie_id, genre_id)
 );
 
-INSERT INTO movie (year, name, language, relase_date) values (2012, 'The Dictator', 'English', '2012-05-16');
-INSERT INTO movie (year, name, language, relase_date) values (2016, 'Brothers Grimbsy', 'English', '2016-02-24');
-INSERT INTO movie (year, name, language, relase_date) values (2007, 'Borat', 'English', '2007-03-30');
-INSERT INTO movie (year, name, language, relase_date) values (2002, 'Ali G Indahouse', 'English', '2002-03-22');
-INSERT INTO movie (year, name, language, relase_date) values (2007, 'Epic Movie', 'English', '2007-01-26');
-INSERT INTO movie (year, name, language, relase_date) values (2008, 'Disaster Movie', 'English', '2008-08-29');
-INSERT INTO movie (year, name, language, relase_date) values (2008, 'You Dont Mess with the Zohan', 'English', '2008-06-06');
+INSERT INTO movie (year, name, language, relasedate) values (2012, 'The Dictator', 'English', '2012-05-16');
+INSERT INTO movie (year, name, language, relasedate) values (2016, 'Brothers Grimbsy', 'English', '2016-02-24');
+INSERT INTO movie (year, name, language, relasedate) values (2007, 'Borat', 'English', '2007-03-30');
+INSERT INTO movie (year, name, language, relasedate) values (2002, 'Ali G Indahouse', 'English', '2002-03-22');
+INSERT INTO movie (year, name, language, relasedate) values (2007, 'Epic Movie', 'English', '2007-01-26');
+INSERT INTO movie (year, name, language, relasedate) values (2008, 'Disaster Movie', 'English', '2008-08-29');
+INSERT INTO movie (year, name, language, relasedate) values (2008, 'You Dont Mess with the Zohan', 'English', '2008-06-06');
 
 INSERT INTO genre (name) values ('Comedy');
 INSERT INTO genre (name) values ('Mockumentary');

@@ -1,0 +1,6 @@
+
+
+JPA:
+- Using OffsetDateTime for 'timestamp without timezone'
+- Using LocalDate for 'Date'
+- When using OffsetDateTime for 'timestamp without timezone', should ignore the @Temporal annotation.

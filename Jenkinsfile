@@ -2,7 +2,7 @@ pipeline{
     agent any
 
     stages{
-        stage ('Compile stage'){
+        stage ('Compiling code'){
             steps{
                withMaven(maven: 'maven_3_6_1') {
                 sh 'mvn clean compile'
@@ -18,7 +18,7 @@ pipeline{
             }
         }
 
-        stage ('Running tests'){
+        stage ('Packaging the JAR'){
             steps{
                 withMaven(maven: 'maven_3_6_1') {
                     sh 'mvn package'

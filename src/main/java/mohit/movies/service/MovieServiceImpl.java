@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 /**
  * Created by mohit on 04-May-19.
  */
@@ -21,7 +23,13 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public Movie getMovieById(Integer id) {
-        return movieRepository.findById(id).orElse(null);
+    public Optional<Movie> getMovieById(Integer id) {
+        return movieRepository.findById(id);
     }
+
+    @Override
+    public Movie addNewMovie(Movie movie) {
+        return movieRepository.save(movie);
+    }
+
 }

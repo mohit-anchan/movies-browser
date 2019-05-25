@@ -29,6 +29,15 @@ public class Movie {
             inverseJoinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "id"))
     private Set<Genre> genres;
 
+    public Movie() {
+    }
+
+    public Movie(int year, String name, String language) {
+        this.year = year;
+        this.name = name;
+        this.language = language;
+    }
+
     public Integer getId() {
         return id;
     }
